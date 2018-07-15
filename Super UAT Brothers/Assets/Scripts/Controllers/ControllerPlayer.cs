@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerPlayer : MonoBehaviour {
+public class ControllerPlayer : Controller {
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +11,13 @@ public class ControllerPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+		{
+			pawn.MoveLeft();
+		}
+		if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+		{
+			pawn.MoveRight();
+		}
 	}
 }

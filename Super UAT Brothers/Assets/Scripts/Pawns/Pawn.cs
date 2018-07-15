@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pawn : MonoBehaviour {
+public abstract class Pawn : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public abstract void MoveLeft();
+	public abstract void MoveRight();
+	public abstract void Jump();
 }
