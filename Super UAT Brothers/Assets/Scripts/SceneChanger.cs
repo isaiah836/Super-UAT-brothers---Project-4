@@ -5,23 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-
     public static SceneChanger instanceSM;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-        if (intanceSM == null)
+        if (instanceSM == null)
         {
             instanceSM = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(GameObject);
+            Destroy(gameObject);
         }
-
-
+        
     }
 
     // Update is called once per frame
