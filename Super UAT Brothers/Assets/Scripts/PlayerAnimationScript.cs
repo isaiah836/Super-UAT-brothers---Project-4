@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerAnimationScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+    public Animator an;
+    public RigidBody2D rb;
+
+    // Use this for initialization
+    void Start () {
+        an = GetComponent<Animator>();
+        rb = GetComponent<RigidBody2D>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+	    if (rb.velocity.)
 	}
 }
