@@ -124,9 +124,11 @@ GameObject:
   - component: {fileID: 52790945}
   - component: {fileID: 52790944}
   - component: {fileID: 52790943}
+  - component: {fileID: 52790948}
+  - component: {fileID: 52790947}
   - component: {fileID: 52790942}
   m_Layer: 0
-  m_Name: p3_walk03
+  m_Name: PlayerPawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,10 +145,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -240,9 +242,34 @@ Transform:
   m_LocalPosition: {x: -1.2577692, y: 0.7878338, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 879328994}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &52790947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52790941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d24e2e030655d40b6d09da0f3770fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &52790948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52790941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ce62e896195b44b80a7959d6af5024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  an: {fileID: 0}
+  rb: {fileID: 0}
+  sr: {fileID: 0}
 --- !u!4 &94039470 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4721643894102766, guid: 9b7a0c892a859bf489a28417ecfb3a8d,
@@ -287,6 +314,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 61705934602136814, guid: 9b7a0c892a859bf489a28417ecfb3a8d,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b7a0c892a859bf489a28417ecfb3a8d, type: 2}
   m_IsPrefabParent: 0
@@ -318,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMoveSpeed: 2
-  jumpHeight: 10
+  jumpHeight: 10000
 --- !u!4 &128010461
 Transform:
   m_ObjectHideFlags: 0
@@ -486,7 +518,7 @@ Transform:
   - {fileID: 805107864}
   - {fileID: 961489485}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &805107863
 Prefab:
@@ -543,6 +575,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.71542
       objectReference: {fileID: 0}
+    - target: {fileID: 61705934602136814, guid: 9b7a0c892a859bf489a28417ecfb3a8d,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b7a0c892a859bf489a28417ecfb3a8d, type: 2}
   m_IsPrefabParent: 0
@@ -577,7 +614,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 52790946}
   m_Father: {fileID: 1238212752}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -592,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2c77054e3feef48b54e05e8813b2b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pawn: {fileID: 0}
+  pawn: {fileID: 52790947}
 --- !u!95 &879328996
 Animator:
   serializedVersion: 3
@@ -665,6 +703,11 @@ Prefab:
     - target: {fileID: 4721643894102766, guid: 9b7a0c892a859bf489a28417ecfb3a8d, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.71542
+      objectReference: {fileID: 0}
+    - target: {fileID: 61705934602136814, guid: 9b7a0c892a859bf489a28417ecfb3a8d,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b7a0c892a859bf489a28417ecfb3a8d, type: 2}
@@ -1037,6 +1080,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 61813998119722258, guid: e6dbf027ce04263408833518d9d6c78d,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6dbf027ce04263408833518d9d6c78d, type: 2}
   m_IsPrefabParent: 0
@@ -1066,7 +1114,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1868973472 stripped
 Transform:
