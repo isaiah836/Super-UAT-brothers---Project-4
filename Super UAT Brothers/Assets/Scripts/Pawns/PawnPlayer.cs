@@ -5,10 +5,12 @@ using UnityEngine;
 public class PawnPlayer : Pawn {
 
 	private Transform tf;
+    private Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
 		tf = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +29,6 @@ public class PawnPlayer : Pawn {
 	}
 	public override void Jump()
 	{
-		Debug.Log("You Jumped");
+        rb.AddForce(Vector2.up * GameManager.instance.jumpHeight);
 	}
 }

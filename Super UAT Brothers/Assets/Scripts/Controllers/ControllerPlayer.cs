@@ -19,5 +19,9 @@ public class ControllerPlayer : Controller {
 		{
 			pawn.MoveRight();
 		}
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            pawn.Jump();
+        }
 	}
 }
