@@ -17,10 +17,7 @@ public class PlayerAnimationScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float xMove = Input.GetAxis("Horizontal");
-        float yMove = Input.GetAxis("Vertical");
-        rb.velocity = new Vector2(xMove, yMove);
-
+		
         if (rb.velocity.y > 0.1f)
         {
             an.Play("Jump");

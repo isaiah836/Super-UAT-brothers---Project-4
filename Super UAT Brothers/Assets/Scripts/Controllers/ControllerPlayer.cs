@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ControllerPlayer : Controller {
 
+	public Animator an;
+	public SpriteRenderer sr;
+
 	// Use this for initialization
 	void Start () {
-		
+		an = GetComponent<Animator>();
+		sr = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -19,9 +23,10 @@ public class ControllerPlayer : Controller {
 		{
 			pawn.MoveRight();
 		}
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             pawn.Jump();
-        }
+			an.Play("Jump");
+		}
 	}
 }

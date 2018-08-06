@@ -29,6 +29,6 @@ public class PawnPlayer : Pawn {
 	}
 	public override void Jump()
 	{
-        rb.AddForce(Vector2.up * GameManager.instance.jumpHeight);
+        rb.velocity = Vector3.up * GameManager.instance.jumpHeight;
 	}
 }
