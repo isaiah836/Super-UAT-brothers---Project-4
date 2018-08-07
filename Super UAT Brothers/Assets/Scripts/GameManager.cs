@@ -6,8 +6,10 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
 
+	[Header("Player Settings")]
 	public float playerMoveSpeed;
 	public float jumpHeight;
+	public float numofJumps;
 
 	// Use this for initialization
 	void Awake () {

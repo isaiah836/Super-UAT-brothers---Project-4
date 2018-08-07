@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class ControllerPlayer : Controller {
 
-	public Animator an;
-	public SpriteRenderer sr;
+
 
 	// Use this for initialization
 	void Start () {
-		an = GetComponent<Animator>();
-		sr = GetComponent<SpriteRenderer>();
+		
 	}
 	
 	// Update is called once per frame
@@ -25,8 +23,8 @@ public class ControllerPlayer : Controller {
 		}
         if(Input.GetKeyDown(KeyCode.Space))
         {
+			if (numofJumps <= 2)
             pawn.Jump();
-			an.Play("Jump");
 		}
 	}
 }
