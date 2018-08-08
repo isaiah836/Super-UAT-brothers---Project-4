@@ -13,6 +13,7 @@ public class ControllerPlayer : Controller {
 	
 	// Update is called once per frame
 	void Update () {
+		//RaycastHit2D hit2D = Physics2D
 		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
 		{
 			pawn.MoveLeft();
@@ -23,7 +24,7 @@ public class ControllerPlayer : Controller {
 		}
         if(Input.GetKeyDown(KeyCode.Space))
         {
-			if (numofJumps <= 2)
+			if (GameManager.instance.numofJumps <= 2)
             pawn.Jump();
 		}
 	}
