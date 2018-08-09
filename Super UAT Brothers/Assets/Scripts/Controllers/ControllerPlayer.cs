@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class ControllerPlayer : Controller {
 
-
+    public LayerMask ground;
+    public GameObject groundCheck;
+    public float groundCheckRadius;
+    public bool grounded;
+    public AudioClip jumpSound;
+    public AudioClip deathSound;
+    public AudioSource audio;
 
 	// Use this for initialization
 	void Start () {
-		
+        audio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//RaycastHit2D hit2D = Physics2D
+        grounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius, ground);
+
 		if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
 		{
 			pawn.MoveLeft();
@@ -24,8 +31,17 @@ public class ControllerPlayer : Controller {
 		}
         if(Input.GetKeyDown(KeyCode.Space))
         {
-			if (GameManager.instance.numofJumps <= 2)
-            pawn.Jump();
+			if (GameManager.instance.numofJumps < 1)
+            {
+                audio.PlayOneShot(jumpSound);
+                ++GameManager.instance.numofJumps;
+                pawn.Jump();
+            }
+            
 		}
+        if (grounded)
+        {
+            GameManager.instance.numofJumps = 0;
+        }
 	}
 }
