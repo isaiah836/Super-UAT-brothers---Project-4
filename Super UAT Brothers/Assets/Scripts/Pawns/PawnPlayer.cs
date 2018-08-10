@@ -6,6 +6,7 @@ public class PawnPlayer : Pawn {
 
 	private Transform tf;
     private Rigidbody2D rb;
+	public Vector3 startPosition;
 
 	// Use this for initialization
 	void Start () {

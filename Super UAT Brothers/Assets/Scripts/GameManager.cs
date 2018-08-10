@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
 
 	[Header("Player Settings")]
+	public GameObject Player;
+	public float playerLives;
 	public float playerMoveSpeed;
 	public float jumpHeight;
 	public float numofJumps;
@@ -27,6 +30,14 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		//if (playerLives < 1)
+		//{
+		//	LoadScenes(4);
+		//}
+	}
+
+	public void LoadScenes(int scene)
+	{
+		SceneManager.LoadScene(scene);
 	}
 }
