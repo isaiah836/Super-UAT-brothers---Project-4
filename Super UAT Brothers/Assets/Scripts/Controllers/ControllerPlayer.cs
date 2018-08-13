@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class ControllerPlayer : Controller {
 
-    public LayerMask ground;
-    public GameObject groundCheck;
-    public float groundCheckRadius;
-    public bool grounded;
-    public AudioClip jumpSound;
-    public AudioClip deathSound;
-    public AudioSource audio;
+    public LayerMask ground; // checks which layaer mask to check for 
+    public GameObject groundCheck; //the ground check gameObject
+    public float groundCheckRadius; //ground check radius 
+    public bool grounded; // bool to see if player is grounded
+    public AudioClip jumpSound; // sound when player jumps
+    public AudioClip deathSound; // sound when player dies
+    public AudioSource audio; // grabs audio component
 
 	public SpriteRenderer sr;
 
-	public bool isMove;
-	public bool isFacingR;
-	public bool isJump;
+	public bool isMove; // a bool to see if the player is moving
+	public bool isJump; // a bool that will tell if player is jumping
 	// Use this for initialization
 	void Start () {
-        audio = GetComponent<AudioSource>();
-		sr = GetComponent<SpriteRenderer>();
+        audio = GetComponent<AudioSource>(); //grabs audi source
+		sr = GetComponent<SpriteRenderer>(); // grabs sprite renderer component
 	}
 
 	// Update is called once per frame
 	void Update() {
-		grounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius, ground);
+		grounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius, ground); //this checks to see if the player is grounded 
+		
 
+		//this chunk of code moves the player
 		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
 		{
 			pawn.MoveLeft();
@@ -43,6 +44,8 @@ public class ControllerPlayer : Controller {
 		{
 			isMove = false;
 		}
+
+		// if space is pressed player jumps and makes jump sound
         if(Input.GetKeyDown(KeyCode.Space))
         {
 			if (GameManager.instance.numofJumps < 1)
@@ -54,6 +57,7 @@ public class ControllerPlayer : Controller {
             }
             
 		}
+		// if player is grounded reset jumps to zero
         if (grounded)
         {
             GameManager.instance.numofJumps = 0;

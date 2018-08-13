@@ -6,7 +6,7 @@ public class PawnPlayer : Pawn {
 
 	private Transform tf;
     private Rigidbody2D rb;
-	public Vector3 startPosition;
+	public Vector3 startPosition; //the position this pawn starts from
 
 	// Use this for initialization
 	void Start () {
@@ -19,16 +19,16 @@ public class PawnPlayer : Pawn {
 		
 	}
 
-	public override void MoveLeft()
+	public override void MoveLeft() // moves the player left
 	{
 		tf.position += Vector3.left * GameManager.instance.playerMoveSpeed * Time.deltaTime;
 	}
 
-	public override void MoveRight()
+	public override void MoveRight() // moves player to the right
 	{
 		tf.position += Vector3.right * GameManager.instance.playerMoveSpeed * Time.deltaTime;
 	}
-	public override void Jump()
+	public override void Jump() // makes the player jump
 	{
         rb.velocity = Vector3.up * GameManager.instance.jumpHeight;
 	}

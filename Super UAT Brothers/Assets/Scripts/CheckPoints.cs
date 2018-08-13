@@ -15,7 +15,7 @@ public class CheckPoints : MonoBehaviour {
 	void Update () {
 		
 	}
-	void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerEnter2D(Collider2D other) // if the player enter the checkpoint this sets the start position of the player pawn to this checkpoint
 	{
 		if (other.gameObject.tag == "player")
 		{

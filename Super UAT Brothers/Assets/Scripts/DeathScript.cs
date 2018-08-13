@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DeathScript : MonoBehaviour {
 
-	public AudioSource audio;
-	public AudioClip heroDeath;
+	public AudioSource audio;// grabs audi source
+	public AudioClip heroDeath; // ghets clip used for when the player dies
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +18,7 @@ public class DeathScript : MonoBehaviour {
 	}
 	void OnTriggerExit2D(Collider2D other)
 	{
+		// if player falls out of bounds reset to checkPoint and play death sound
 		if (other.gameObject.tag == "player")
 		{
 			audio.PlayOneShot(heroDeath);

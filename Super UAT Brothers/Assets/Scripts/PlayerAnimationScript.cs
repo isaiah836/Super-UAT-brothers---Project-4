@@ -22,19 +22,19 @@ public class PlayerAnimationScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		//if playerpawn is moving up or down play jump animation
 		if (rb.velocity.y > 0.1f || rb.velocity.y < -0.1f)
 		{
 			an.Play("Jump");
 		}
-		else if (PcS.isMove == true)
+		else if (PcS.isMove == true) // if player is moving play walk animation unless the player is jumping
 		{
 			if (PcS.isJump == false)
 			{
 				an.Play("Player_WalkAnimation");
 			}
 		}
-		else if (rb.velocity.x == 0)
+		else if (rb.velocity.x == 0)// if player is not moving play idle animation
 		{
 			an.Play("Idle_Animation");
 		}
