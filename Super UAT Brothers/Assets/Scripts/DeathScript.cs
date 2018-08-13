@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class DeathScript : MonoBehaviour {
 
+	public AudioSource audio;
+	public AudioClip heroDeath;
+
 	// Use this for initialization
 	void Start () {
-		
+		audio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -17,6 +20,7 @@ public class DeathScript : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "player")
 		{
+			audio.PlayOneShot(heroDeath);
 			other.gameObject.transform.position = other.gameObject.GetComponent<PawnPlayer>().startPosition;
 			--GameManager.instance.playerLives;
 		}

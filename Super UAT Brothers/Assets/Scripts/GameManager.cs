@@ -14,12 +14,12 @@ public class GameManager : MonoBehaviour {
 	public float jumpHeight;
 	public float numofJumps;
 
+
 	// Use this for initialization
 	void Awake () {
 		if (instance == null)
 		{
 			instance = this;
-			DontDestroyOnLoad(gameObject);
 		}
 		else
 		{
@@ -30,14 +30,19 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//if (playerLives < 1)
-		//{
-		//	LoadScenes(4);
-		//}
+		if (playerLives < 1)
+		{
+			LoadScenes(3);
+		}
 	}
 
 	public void LoadScenes(int scene)
 	{
 		SceneManager.LoadScene(scene);
+	}
+
+	public void Quit()
+	{
+		Application.Quit();
 	}
 }

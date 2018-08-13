@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: aac5282de7ca30749a13eb6736c54479
   - enabled: 1
-    path: Assets/Scenes/firstScene.unity
+    path: Assets/Scenes/Gameplay.unity
     guid: e20d94e6bbd2b3b418090701352306af
+  - enabled: 1
+    path: Assets/Scenes/VictoryMenu.unity
+    guid: 79cb57e7fbd172745b9164d6fa6efdaa
+  - enabled: 1
+    path: Assets/Scenes/DefeatMenu.unity
+    guid: 4291b29c9939c1d4397d7319f7c21437
   m_configObjects: {}
